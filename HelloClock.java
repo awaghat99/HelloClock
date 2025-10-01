@@ -1,12 +1,16 @@
 import java.time.LocalTime;
 import java.util.Scanner;
+import java.time.format.DateTimeFormatter;
 
 public class HelloClock {
     public static void main(String[] args)  {
         System.out.println("Welcome to hello clock!");
 
         LocalTime now = LocalTime.now();
-        System.out.println("The current time is: " + now);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        String cleanTime = now.format(formatter);
+        System.out.println("The current time is: " + cleanTime);
+
 
 
         Scanner sc = new Scanner(System.in);
@@ -15,7 +19,7 @@ public class HelloClock {
 
         sc.close();
 
-        System.out.println("Hello " + name + "! The time you joined was: " + now);
+        System.out.println("Hello " + name + "! The time you joined was: " + cleanTime);
 
 
 
